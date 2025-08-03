@@ -319,9 +319,7 @@ body{
   box-sizing: border-box;
   border-right: 10px solid #f4f4f4;
 }
-.copy_address{
-  
-}
+
 .box_login_continue{
   transition:  600ms;
   font-weight: 700;
