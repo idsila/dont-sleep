@@ -59,11 +59,16 @@ app.get("/wake-up", async (req, res) => {
 setInterval(async () => {
   dataBase.find().then(async (data) => {
     for(let obj of data){
-      const res = await axios.get(obj.link);
-      console.log(obj.link)
+      try {
+        const res = await axios.get(obj.link);
+        console.log(obj.link)
+      }
+      catch (error){
+        console.log(error)
+      }
     }
   });
-}, (1000*60)*5 );
+}, (1000*60)*3);
 
 
 ;
