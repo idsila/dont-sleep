@@ -28,11 +28,13 @@ app.post("/add-link", async (req, res) => {
   })
 });
 app.post("/delete-link", async (req, res) => {
-  dataBase.deleteOne(req.body).then(data_1 => {
+  const { title } = req.body;
+  dataBase.deleteOne({ title }).then(response => {
+    console.log(response);
     dataBase.find().then(data_2 => {
-      res.send({ all: data_2, currentTime: Math.ceil(timeNow()/1000) });
+      res.json({ all: data_2, currentTime: Math.ceil(timeNow()/1000) });
     });
-  })
+  });
 });
 
 

@@ -158,12 +158,13 @@ function addUrl() {
 }
 
 function removeUrl(hostname) {
+  console.log(ALL_SERVERS[hostname], hostname)
   fetch(`/delete-link`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(ALL_SERVERS[hostname]),
+    body: JSON.stringify({ title:hostname }),
   })
     .then((res) => res.json())
     .then((result) => {
